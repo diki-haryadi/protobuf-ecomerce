@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: go-micro-template/article/v1/article.proto
+// source: go_micro_template/article/v1/article.proto
 
 package articlev1
 
@@ -36,7 +36,7 @@ func NewArticleServiceClient(cc grpc.ClientConnInterface) ArticleServiceClient {
 
 func (c *articleServiceClient) CreateArticle(ctx context.Context, in *CreateArticleRequest, opts ...grpc.CallOption) (*CreateArticleResponse, error) {
 	out := new(CreateArticleResponse)
-	err := c.cc.Invoke(ctx, "/go-micro-template.article.v1.ArticleService/CreateArticle", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go_micro_template.article.v1.ArticleService/CreateArticle", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func (c *articleServiceClient) CreateArticle(ctx context.Context, in *CreateArti
 
 func (c *articleServiceClient) GetArticleById(ctx context.Context, in *GetArticleByIdRequest, opts ...grpc.CallOption) (*GetArticleByIdResponse, error) {
 	out := new(GetArticleByIdResponse)
-	err := c.cc.Invoke(ctx, "/go-micro-template.article.v1.ArticleService/GetArticleById", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go_micro_template.article.v1.ArticleService/GetArticleById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +92,7 @@ func _ArticleService_CreateArticle_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go-micro-template.article.v1.ArticleService/CreateArticle",
+		FullMethod: "/go_micro_template.article.v1.ArticleService/CreateArticle",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ArticleServiceServer).CreateArticle(ctx, req.(*CreateArticleRequest))
@@ -110,7 +110,7 @@ func _ArticleService_GetArticleById_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go-micro-template.article.v1.ArticleService/GetArticleById",
+		FullMethod: "/go_micro_template.article.v1.ArticleService/GetArticleById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ArticleServiceServer).GetArticleById(ctx, req.(*GetArticleByIdRequest))
@@ -122,7 +122,7 @@ func _ArticleService_GetArticleById_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ArticleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "go-micro-template.article.v1.ArticleService",
+	ServiceName: "go_micro_template.article.v1.ArticleService",
 	HandlerType: (*ArticleServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -135,5 +135,5 @@ var ArticleService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "go-micro-template/article/v1/article.proto",
+	Metadata: "go_micro_template/article/v1/article.proto",
 }
