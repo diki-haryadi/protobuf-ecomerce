@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: oauth2_server_service/v1/auth.proto
+// source: oauth2_server_service/authentication/v1/auth.proto
 
-package oauth2_server_servicev1
+package authenticationv1
 
 import (
 	context "context"
@@ -38,7 +38,7 @@ func NewAuthServiceClient(cc grpc.ClientConnInterface) AuthServiceClient {
 
 func (c *authServiceClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
 	out := new(RegisterResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.AuthService/Register", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.authentication.v1.AuthService/Register", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *authServiceClient) Register(ctx context.Context, in *RegisterRequest, o
 
 func (c *authServiceClient) ForgotPassword(ctx context.Context, in *ForgotPasswordRequest, opts ...grpc.CallOption) (*ForgotPasswordResponse, error) {
 	out := new(ForgotPasswordResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.AuthService/ForgotPassword", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.authentication.v1.AuthService/ForgotPassword", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *authServiceClient) ForgotPassword(ctx context.Context, in *ForgotPasswo
 
 func (c *authServiceClient) ChangePassword(ctx context.Context, in *ChangePasswordRequest, opts ...grpc.CallOption) (*ChangePasswordResponse, error) {
 	out := new(ChangePasswordResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.AuthService/ChangePassword", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.authentication.v1.AuthService/ChangePassword", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func (c *authServiceClient) ChangePassword(ctx context.Context, in *ChangePasswo
 
 func (c *authServiceClient) UpdateUsername(ctx context.Context, in *UpdateUsernameRequest, opts ...grpc.CallOption) (*UpdateUsernameResponse, error) {
 	out := new(UpdateUsernameResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.AuthService/UpdateUsername", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.authentication.v1.AuthService/UpdateUsername", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +120,7 @@ func _AuthService_Register_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.AuthService/Register",
+		FullMethod: "/oauth2_server_service.authentication.v1.AuthService/Register",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthServiceServer).Register(ctx, req.(*RegisterRequest))
@@ -138,7 +138,7 @@ func _AuthService_ForgotPassword_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.AuthService/ForgotPassword",
+		FullMethod: "/oauth2_server_service.authentication.v1.AuthService/ForgotPassword",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthServiceServer).ForgotPassword(ctx, req.(*ForgotPasswordRequest))
@@ -156,7 +156,7 @@ func _AuthService_ChangePassword_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.AuthService/ChangePassword",
+		FullMethod: "/oauth2_server_service.authentication.v1.AuthService/ChangePassword",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthServiceServer).ChangePassword(ctx, req.(*ChangePasswordRequest))
@@ -174,7 +174,7 @@ func _AuthService_UpdateUsername_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.AuthService/UpdateUsername",
+		FullMethod: "/oauth2_server_service.authentication.v1.AuthService/UpdateUsername",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthServiceServer).UpdateUsername(ctx, req.(*UpdateUsernameRequest))
@@ -186,7 +186,7 @@ func _AuthService_UpdateUsername_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AuthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "oauth2_server_service.v1.AuthService",
+	ServiceName: "oauth2_server_service.authentication.v1.AuthService",
 	HandlerType: (*AuthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -207,5 +207,5 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "oauth2_server_service/v1/auth.proto",
+	Metadata: "oauth2_server_service/authentication/v1/auth.proto",
 }

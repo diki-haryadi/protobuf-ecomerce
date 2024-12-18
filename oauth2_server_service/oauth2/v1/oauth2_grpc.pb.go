@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: oauth2_server_service/v1/oauth2.proto
+// source: oauth2_server_service/oauth2/v1/oauth2.proto
 
-package oauth2_server_servicev1
+package oauth2v1
 
 import (
 	context "context"
@@ -38,7 +38,7 @@ func NewOauth2ServiceClient(cc grpc.ClientConnInterface) Oauth2ServiceClient {
 
 func (c *oauth2ServiceClient) PasswordGrant(ctx context.Context, in *PasswordGrantRequest, opts ...grpc.CallOption) (*PasswordGrantResponse, error) {
 	out := new(PasswordGrantResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.Oauth2Service/PasswordGrant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.oauth2.v1.Oauth2Service/PasswordGrant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *oauth2ServiceClient) PasswordGrant(ctx context.Context, in *PasswordGra
 
 func (c *oauth2ServiceClient) AuthorizationCodeGrant(ctx context.Context, in *AuthorizationCodeGrantRequest, opts ...grpc.CallOption) (*AuthorizationCodeGrantResponse, error) {
 	out := new(AuthorizationCodeGrantResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.Oauth2Service/AuthorizationCodeGrant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.oauth2.v1.Oauth2Service/AuthorizationCodeGrant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *oauth2ServiceClient) AuthorizationCodeGrant(ctx context.Context, in *Au
 
 func (c *oauth2ServiceClient) RefreshTokenGrant(ctx context.Context, in *RefreshTokenGrantRequest, opts ...grpc.CallOption) (*RefreshTokenGrantResponse, error) {
 	out := new(RefreshTokenGrantResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.Oauth2Service/RefreshTokenGrant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.oauth2.v1.Oauth2Service/RefreshTokenGrant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func (c *oauth2ServiceClient) RefreshTokenGrant(ctx context.Context, in *Refresh
 
 func (c *oauth2ServiceClient) ClientCredentialsGrant(ctx context.Context, in *ClientCredentialsGrantRequest, opts ...grpc.CallOption) (*ClientCredentialsGrantResponse, error) {
 	out := new(ClientCredentialsGrantResponse)
-	err := c.cc.Invoke(ctx, "/oauth2_server_service.v1.Oauth2Service/ClientCredentialsGrant", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/oauth2_server_service.oauth2.v1.Oauth2Service/ClientCredentialsGrant", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +120,7 @@ func _Oauth2Service_PasswordGrant_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.Oauth2Service/PasswordGrant",
+		FullMethod: "/oauth2_server_service.oauth2.v1.Oauth2Service/PasswordGrant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(Oauth2ServiceServer).PasswordGrant(ctx, req.(*PasswordGrantRequest))
@@ -138,7 +138,7 @@ func _Oauth2Service_AuthorizationCodeGrant_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.Oauth2Service/AuthorizationCodeGrant",
+		FullMethod: "/oauth2_server_service.oauth2.v1.Oauth2Service/AuthorizationCodeGrant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(Oauth2ServiceServer).AuthorizationCodeGrant(ctx, req.(*AuthorizationCodeGrantRequest))
@@ -156,7 +156,7 @@ func _Oauth2Service_RefreshTokenGrant_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.Oauth2Service/RefreshTokenGrant",
+		FullMethod: "/oauth2_server_service.oauth2.v1.Oauth2Service/RefreshTokenGrant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(Oauth2ServiceServer).RefreshTokenGrant(ctx, req.(*RefreshTokenGrantRequest))
@@ -174,7 +174,7 @@ func _Oauth2Service_ClientCredentialsGrant_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/oauth2_server_service.v1.Oauth2Service/ClientCredentialsGrant",
+		FullMethod: "/oauth2_server_service.oauth2.v1.Oauth2Service/ClientCredentialsGrant",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(Oauth2ServiceServer).ClientCredentialsGrant(ctx, req.(*ClientCredentialsGrantRequest))
@@ -186,7 +186,7 @@ func _Oauth2Service_ClientCredentialsGrant_Handler(srv interface{}, ctx context.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Oauth2Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "oauth2_server_service.v1.Oauth2Service",
+	ServiceName: "oauth2_server_service.oauth2.v1.Oauth2Service",
 	HandlerType: (*Oauth2ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -207,5 +207,5 @@ var Oauth2Service_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "oauth2_server_service/v1/oauth2.proto",
+	Metadata: "oauth2_server_service/oauth2/v1/oauth2.proto",
 }
